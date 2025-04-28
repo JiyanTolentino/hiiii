@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Are You Sure?</title>
+    <style>
+body {
+  background-image: url(./-1_orig.jpeg);
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+            text-align: center;
+            padding-top: 50px;
+            overflow: hidden;
+}
+        h1 {
+            color: #d32f2f;
+            font-size: 3em;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        .buttons-container {
+            margin-top: 50px;
+            position: relative;
+            height: 100px;
+        }
+        button {
+            padding: 15px 30px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: absolute;
+        }
+        #yes-btn {
+            background-color: #4caf50;
+            color: white;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        #no-btn {
+            background-color: #f44336;
+            color: white;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-top: 60px;
+        }
+        #yes-btn:hover {
+            background-color: #388e3c;
+            transform: translateX(-50%) scale(1.05);
+        }
+        #no-btn:hover {
+            background-color: #d32f2f;
+            transform: translateX(-50%) scale(1.05);
+        }
+        .running {
+            transition: all 0.5s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <h1>Talagang hindi po talaga? 🥺</h1>
+    <div class="buttons-container">
+        <button id="yes-btn">Hindi Nga</button>
+        <button id="no-btn">Oo na Nga</button>
+    </div>
+
+    <script>
+        const yesBtn = document.getElementById('yes-btn');
+        const noBtn = document.getElementById('no-btn');
+        const container = document.querySelector('.buttons-container');
+        
+        const containerRect = container.getBoundingClientRect();
+        const containerWidth = containerRect.width;
+        const containerHeight = containerRect.height;
+        
+        yesBtn.addEventListener('mouseover', runAway);
+        yesBtn.addEventListener('click', runAway);
+        
+        function runAway() {
+            yesBtn.classList.add('running');
+            
+            const maxX = containerWidth - yesBtn.offsetWidth;
+            const maxY = containerHeight - yesBtn.offsetHeight;
+            
+            const randomX = Math.floor(Math.random() * maxX);
+            const randomY = Math.floor(Math.random() * maxY);
+            
+            yesBtn.style.left = `${randomX}px`;
+            yesBtn.style.top = `${randomY}px`;
+            yesBtn.style.transform = 'none';
+            
+            setTimeout(() => {
+                yesBtn.classList.remove('running');
+            }, 500);
+        }
+        
+        noBtn.addEventListener('click', function() {
+            window.location.href = 'yes.html';
+        });
+    </script>
+</body>
+</html>

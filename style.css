@@ -1,0 +1,260 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  padding-bottom: 60px;
+  min-height: 100vh;
+  position: relative;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, sans-serif;
+  background-image: url(./-1_orig.jpeg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: white;
+}
+
+header {
+  width: 100%;
+  text-align: center;
+  padding: 10px 0;
+  margin-bottom: 5px;
+}
+
+header h1 {
+  font-size: 2rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+span {
+  color: #39ff14;
+}
+
+span:hover {
+  color: #00ff59;
+  transition: 0.8s;
+}
+
+.content {
+  text-align: center;
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  text-shadow: 0 2px 4px rgba(45, 43, 43, 0.299);
+}
+
+.envelope-container {
+  margin: 30px auto;
+}
+
+.envelope {
+  position: relative;
+  width: 300px;
+  min-height: 200px;
+  background: rgb(255, 230, 230);
+  border: 2px solid #000000;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgb(0, 0, 0);
+  margin: 0 auto 15px;
+  min-height: 300px;
+}
+
+.envelope:before {
+  content: "❤";
+  position: absolute;
+  font-size: 250px;
+  color: rgba(255, 0, 0, 0.3);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+}
+
+.flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  background: #da2222;
+  z-index: 1;
+  transform-origin: top;
+  transition: transform 1.5s ease-in-out;
+  border-bottom: 2px solid #000000;
+}
+
+.letter {
+  padding: 20px;
+    overflow-y: auto;
+    max-height: 400px;
+    margin-top: 20px;
+  text-align: left;
+  display: none;
+  z-index: 10;
+  position: relative;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  background: rgb(231, 226, 226);
+  color: #333;
+  min-height: 180px;
+}
+
+.letter p {
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.letter.visible {
+  display: block;
+  opacity: 1;
+}
+
+#toggleBtn {
+  background-color: #39ff14;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-top: 20px;
+}
+
+#toggleBtn:hover {
+  background-color: #14ff7e;
+}
+
+.button-group {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.stylus-button {
+  display: inline-block;
+  background-color: #ff1414;
+  border: none;
+  border-radius: 20px;
+  height: 40px;
+  padding: 0 16px;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.stylus-button-text a {
+  color: #ffffff;
+  text-decoration: none;
+  line-height: 40px;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  background-color: #000000a2;
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
+}
+
+.content {
+  margin-bottom: 20px;
+}
+
+.button-group {
+  margin-bottom: 25px;
+}
+
+.footer-menu {
+  list-style: none;
+  padding: 10px 0;
+}
+
+.footer-menu li {
+  display: inline-block;
+  margin: 0 5px;
+}
+
+.footer-menu li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+@keyframes fall {
+  to { transform: translateY(100vh) rotate(360deg); }
+}
+
+.yes-content {
+  text-align: center;
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.gif-container {
+  margin: 20px auto;
+  width: 200px;
+  height: 200px;
+}
+
+.cat-gif {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.lyrics-container {
+  margin: 30px auto;
+  min-height: 100px;
+  font-size: 1.8rem;
+  color: #39ff14;
+  text-shadow: 0 0 12px rgba(57, 255, 20, 0.8);
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 10;
+}
+
+#lyrics-line {
+  transition: opacity 0.5s ease, transform 0.3s ease;
+  opacity: 0;
+  padding: 12px 24px;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 12px;
+  display: inline-block;
+  transform: translateY(20px);
+  max-width: 80%;
+  line-height: 1.4;
+}
+
+#lyrics-line.showing {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.instrumental {
+  font-size: 1.5rem;
+  color: rgba(255, 255, 255, 0.7);
+  animation: pulse 3s infinite;
+  font-style: italic;
+}
+
+@keyframes pulse {
+  0% { opacity: 0.7; }
+  50% { opacity: 1; }
+  100% { opacity: 0.7; }
+}
