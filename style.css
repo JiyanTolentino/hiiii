@@ -258,3 +258,71 @@ footer {
   50% { opacity: 1; }
   100% { opacity: 0.7; }
 }
+
+@media only screen and (max-width: 768px) {
+    body {
+        background-size: auto;
+        background-attachment: scroll;
+        padding: 20px;
+        height: auto;
+        min-height: 100vh;
+    }
+
+    header h1 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+    }
+
+    .content {
+        padding: 10px;
+        width: 95%;
+    }
+
+    .envelope {
+        width: 90%;
+        min-height: 250px;
+    }
+
+    .letter {
+        max-height: 300px;
+        padding: 15px;
+    }
+
+    .button-group {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .stylus-button {
+        width: 100%;
+    }
+
+    #toggleBtn {
+        width: 100%;
+        padding: 12px;
+    }
+
+    footer {
+        position: relative;
+        margin-top: 30px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    header h1 {
+        font-size: 1.3rem;
+    }
+
+    .content h2 {
+        font-size: 1.2rem;
+    }
+
+    .envelope {
+        min-height: 200px;
+    }
+
+    .letter p {
+        font-size: 0.9rem;
+        margin-bottom: 15px;
+    }
+}
