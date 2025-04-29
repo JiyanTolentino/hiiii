@@ -55,6 +55,35 @@ body {
         .running {
             transition: all 0.5s ease-out;
         }
+
+        @media only screen and (max-width: 768px) {
+    body {
+        padding-top: 20px;
+    }
+    
+    h1 {
+        font-size: 1.8em;
+        padding: 0 15px;
+    }
+    
+    .buttons-container {
+        height: 150px;
+    }
+    
+    button {
+        font-size: 1em;
+        padding: 12px 25px;
+    }
+    
+    #yes-btn, #no-btn {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    #no-btn {
+        margin-top: 80px;
+    }
+}
     </style>
 </head>
 <body>
