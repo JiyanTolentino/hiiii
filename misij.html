@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Message Me</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            text-align: center;
+            color: #333;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 100%;
+            animation: fadeIn 0.8s ease;
+        }
+
+        h1 {
+            color: #ff4757;
+            margin-bottom: 20px;
+            font-size: 2.5rem;
+        }
+
+        p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .heart {
+            font-size: 3rem;
+            margin: 20px 0;
+            display: block;
+            animation: pulse 1.5s infinite;
+        }
+
+        .messenger-btn {
+            background-color: #0084ff;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 5px 15px rgba(0, 132, 255, 0.4);
+            margin-top: 20px;
+            text-decoration: none;
+        }
+
+        .messenger-btn:hover {
+            background-color: #0066cc;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 132, 255, 0.6);
+        }
+
+        .messenger-btn:active {
+            transform: translateY(-1px);
+        }
+
+        .messenger-icon {
+            width: 24px;
+            height: 24px;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px 20px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            p {
+                font-size: 1rem;
+            }
+            
+            .messenger-btn {
+                padding: 12px 25px;
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .heart {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Let's Celebrate!</h1>
+        <span class="heart">❤️</span>
+        <p>I'm so happy you said yes! Now you can send me a message directly on Messenger to let me know how you really feel.</p>
+        <p>Just click the button below and it will open Messenger with a pre-written message ready to send!</p>
+        
+        <a href="https://m.me/[YOUR_FACEBOOK_USERNAME]?text=I%20clicked%20yes%20❤️" class="messenger-btn">
+            <svg class="messenger-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                <path fill="currentColor" d="M256.55 8C116.52 8 8 110.34 8 248.57c0 72.3 29.71 134.78 78.07 177.94 8.35 7.51 6.63 11.86 8.05 58.23A19.92 19.92 0 0 0 122 502.31c52.91-23.3 53.59-25.14 62.56-25.14 7.54 0 15.91.15 24.85 2.15 77.48 17.72 158.34-18.88 158.34-91.86 0-1.38-.11-2.74-.17-4.1-23.83 1.15-48.13 4.9-71.37 11.57-11.16 3.21-22.15 3.58-32.45 1.86-23.77-4-45.38-17.84-55.25-39.32-3.9-8.56-6.11-17.84-6.11-27.63 0-1.65.07-3.29.21-4.92 40.19-30.42 63.4-74.67 63.4-123.49 0-102.81-89.77-185.56-200.37-185.56Z"></path>
+            </svg>
+            Message Me
+        </a>
+    </div>
+</body>
+</html>

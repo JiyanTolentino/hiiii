@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Yes!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+            background-image: url(./-1_orig.jpeg);
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            text-align: center;
+        }
+
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            width: 100%;
+        }
+
+        .yes-content {
+            max-width: 800px;
+            width: 100%;
+            padding: 30px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 15px;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            margin: 20px auto;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+            color: #ff69b4;
+        }
+
+        .gif-container {
+            margin: 20px auto;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid #ff69b4;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .cat-gif {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .lyrics-container {
+            margin: 30px auto;
+            min-height: 100px;
+            font-size: 1.5rem;
+            color: #39ff14;
+            text-shadow: 0 0 12px rgba(57, 255, 20, 0.8);
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 10;
+        }
+
+        #lyrics-line {
+            transition: opacity 0.5s ease, transform 0.3s ease;
+            opacity: 0;
+            padding: 12px 24px;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 12px;
+            display: inline-block;
+            transform: translateY(20px);
+            max-width: 80%;
+            line-height: 1.4;
+            text-align: justify;
+        }
+
+        #lyrics-line.showing {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .instrumental {
+            font-size: 1.5rem;
+            color: rgba(255, 255, 255, 0.7);
+            animation: pulse 3s infinite;
+            font-style: italic;
+        }
+
+        #play-button {
+            background-color: #ff69b4;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 1.2rem;
+            border-radius: 30px;
+            cursor: pointer;
+            margin: 20px auto;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        #play-button:hover {
+            background-color: #ff1493;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        footer {
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            width: 100%;
+        }
+
+        .footer-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .footer-menu {
+            list-style: none;
+            padding: 10px 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .footer-menu li a {
+            color: #ff69b4;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-menu li a:hover {
+            color: #39ff14;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 0.7; }
+            50% { opacity: 1; }
+            100% { opacity: 0.7; }
+        }
+
+        /* Responsive adjustments */
+        @media only screen and (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .yes-content {
+                padding: 20px;
+                margin: 15px;
+            }
+
+            .gif-container {
+                width: 150px;
+                height: 150px;
+            }
+
+            .lyrics-container {
+                align-items: center;
+                font-size: 1.2rem;
+                margin: 20px auto;
+                text-align: justify;
+            }
+
+            #play-button {
+                padding: 10px 25px;
+                font-size: 1rem;
+            }
+        }
+
+        @media only screen and (max-width: 480px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .yes-content {
+                padding: 15px;
+                margin: 10px;
+            }
+
+            .gif-container {
+                width: 120px;
+                height: 120px;
+            }
+
+            .lyrics-container {
+                align-items: center;
+                font-size: 1rem;
+            }
+
+            .footer-menu {
+                flex-direction: column;
+                gap: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main-content">
+        <div class="yes-content">
+            <h1>Reallllyyyy/Wehhhhh!????!! ❤️</h1>
+            
+            <div class="gif-container">
+                <img src="./download.gif" alt="Happy cat" class="cat-gif">
+            </div>
+
+            <div class="lyrics-container">
+                <p id="lyrics-line">Tap anywhere to play the song</p>
+            </div>
+            
+            <button id="play-button" class="stylus-button">
+                <span class="stylus-button-text">Play Song</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Stylish Back to Home Button with Icon -->
+<div class="back-home-container">
+    <button id="back-home-btn" class="back-home-button">
+        ← Misij Meee
+    </button>
+</div>
+
+<style>
+    /* Stylish Back Button Styles */
+    .back-home-container {
+        margin: 20px auto;
+        text-align: center;
+    }
+
+    .back-home-button {
+        background-color: rgba(255, 255, 255, 0.1);
+        color: white;
+        border: 2px solid #ff69b4;
+        padding: 10px 25px;
+        font-size: 1rem;
+        border-radius: 30px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        backdrop-filter: blur(5px);
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .back-home-button:hover {
+        background-color: rgba(255, 105, 180, 0.2);
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(255, 105, 180, 0.3);
+    }
+
+    /* Responsive adjustments */
+    @media only screen and (max-width: 768px) {
+        .back-home-button {
+            padding: 8px 20px;
+            font-size: 0.9rem;
+        }
+    }
+</style>
+
+<script>
+    document.getElementById('back-home-btn').addEventListener('click', function() {
+        window.location.href = 'misij.html';
+    });
+</script>
+
+    <footer>
+        <div class="footer-container">
+            <p>&copy; 2025 Gian Tolentino | Gawa ni Jiyan</p>
+            <ul class="footer-menu">
+                <li><a href="#">HI PO</a></li>
+                <li><a href="#">Penge Notes</a></li>
+            </ul>
+        </div>
+    </footer>
+    
+    <audio id="song" preload="auto">
+        <source src="./y2mate.com - Taylor Swift Mine.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <script src="yes-script.js"></script>
+</body>
+</html>
