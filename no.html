@@ -1,130 +1,304 @@
 <!DOCTYPE html>
 <html>
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <head>
     <title>Are You Sure?</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Cormorant+Garamond:wght@500&display=swap" rel="stylesheet">
     <style>
-body {
-  background-image: url(./-1_orig.jpeg);
-  font-family: 'Comic Sans MS', cursive, sans-serif;
+        /* Base Styles */
+        body {
+            background-image: url(./-1_orig.jpeg);
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            font-family: 'Montserrat', sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            color: white;
             text-align: center;
-            padding-top: 50px;
-            overflow: hidden;
-}
+            overflow-x: hidden;
+        }
+        
+        .content-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            max-width: 500px;
+            width: 100%;
+            padding: 30px;
+            background-color: rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
         h1 {
-            color: #d32f2f;
-            font-size: 3em;
-            margin-bottom: 30px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 500;
+            font-size: 2.2rem;
+            margin-bottom: 1.2rem;
+            line-height: 1.3;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
         }
+        
+        .broken-heart {
+            font-size: 2.8rem;
+            margin: 1rem 0;
+            animation: gentlePulse 2s ease infinite;
+        }
+        
         .buttons-container {
-            margin-top: 50px;
-            position: relative;
-            height: 100px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            width: 100%;
+            max-width: 260px;
+            margin: 1.5rem 0;
         }
+        
         button {
-            padding: 15px 30px;
-            font-size: 1.2em;
+            padding: 10px 20px;
+            font-size: 1rem;
             border: none;
-            border-radius: 50px;
+            border-radius: 25px;
             cursor: pointer;
-            transition: all 0.3s;
-            position: absolute;
+            transition: all 0.3s ease;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            width: 100%;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
+        
         #yes-btn {
-            background-color: #4caf50;
+            background-color: rgba(76, 175, 80, 0.9);
             color: white;
-            left: 50%;
-            transform: translateX(-50%);
         }
+        
         #no-btn {
-            background-color: #f44336;
+            background-color: rgba(244, 67, 54, 0.9);
             color: white;
-            left: 50%;
-            transform: translateX(-50%);
-            margin-top: 60px;
         }
+        
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+        
         #yes-btn:hover {
-            background-color: #388e3c;
-            transform: translateX(-50%) scale(1.05);
+            background-color: rgba(62, 142, 65, 0.9);
         }
+        
         #no-btn:hover {
-            background-color: #d32f2f;
-            transform: translateX(-50%) scale(1.05);
+            background-color: rgba(211, 47, 47, 0.9);
         }
-        .running {
-            transition: all 0.5s ease-out;
+        
+        .sad-message {
+            margin: 1rem 0;
+            font-size: 1rem;
+            opacity: 0;
+            height: 1.2rem;
+            transition: opacity 0.4s ease;
+            font-style: italic;
         }
-
-        @media only screen and (max-width: 768px) {
-    body {
-        padding-top: 20px;
-    }
-    
-    h1 {
-        font-size: 1.8em;
-        padding: 0 15px;
-    }
-    
-    .buttons-container {
-        height: 150px;
-    }
-    
-    button {
-        font-size: 1em;
-        padding: 12px 25px;
-    }
-    
-    #yes-btn, #no-btn {
-        left: 50%;
-        transform: translateX(-50%);
-    }
-    
-    #no-btn {
-        margin-top: 80px;
-    }
-}
+        
+        .show {
+            opacity: 1;
+        }
+        
+        /* Floating Hearts */
+        .floating-hearts {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .heart {
+            position: absolute;
+            font-size: 16px;
+            color: rgba(255, 105, 180, 0.6);
+            animation: floatUp 5s linear forwards;
+        }
+        
+        /* Animations */
+        @keyframes gentlePulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        @keyframes floatUp {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            20% {
+                opacity: 1;
+            }
+            80% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-20vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        /* Mobile Responsiveness */
+        @media only screen and (max-width: 600px) {
+            .content-wrapper {
+                padding: 25px 20px;
+                max-width: 90%;
+                backdrop-filter: blur(3px);
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .broken-heart {
+                font-size: 2.2rem;
+            }
+            
+            .buttons-container {
+                max-width: 220px;
+            }
+            
+            button {
+                padding: 8px 16px;
+                font-size: 0.95rem;
+            }
+        }
+        
+        @media only screen and (max-width: 400px) {
+            h1 {
+                font-size: 1.6rem;
+            }
+            
+            .content-wrapper {
+                padding: 20px 15px;
+            }
+        }
     </style>
 </head>
 <body>
-    <h1>Talagang hindi po talaga? 🥺</h1>
-    <div class="buttons-container">
-        <button id="yes-btn">Hindi Nga</button>
-        <button id="no-btn">Oo na Nga</button>
+    <div class="content-wrapper">
+        <h1>Are you really sure about this?</h1>
+        
+        <div class="broken-heart">💔</div>
+        
+        <p class="sad-message" id="sadMessage">My heart skipped a beat...</p>
+        
+        <div class="buttons-container">
+            <button id="yes-btn">Still No</button>
+            <button id="no-btn">Okay Yes</button>
+        </div>
     </div>
-
+    
+    <div class="floating-hearts" id="floatingHearts"></div>
+    
     <script>
         const yesBtn = document.getElementById('yes-btn');
         const noBtn = document.getElementById('no-btn');
-        const container = document.querySelector('.buttons-container');
+        const sadMessage = document.getElementById('sadMessage');
+        const floatingHearts = document.getElementById('floatingHearts');
         
-        const containerRect = container.getBoundingClientRect();
-        const containerWidth = containerRect.width;
-        const containerHeight = containerRect.height;
+        let runCount = 0;
+        const sadMessages = [
+            "My heart skipped a beat...",
+            "This wasn't the answer I hoped for",
+            "Please reconsider...",
+            "I'll keep hoping...",
+            "My feelings remain unchanged",
+            "This hurts more than I expected",
+            "I'm not ready to give up",
+            "You're worth waiting for"
+        ];
         
-        yesBtn.addEventListener('mouseover', runAway);
-        yesBtn.addEventListener('click', runAway);
-        
-        function runAway() {
-            yesBtn.classList.add('running');
+        // Create floating hearts
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.top = '100vh';
+            heart.style.animationDuration = (Math.random() * 3 + 4) + 's';
+            heart.style.fontSize = (Math.random() * 12 + 10) + 'px';
+            floatingHearts.appendChild(heart);
             
-            const maxX = containerWidth - yesBtn.offsetWidth;
-            const maxY = containerHeight - yesBtn.offsetHeight;
-            
-            const randomX = Math.floor(Math.random() * maxX);
-            const randomY = Math.floor(Math.random() * maxY);
-            
-            yesBtn.style.left = `${randomX}px`;
-            yesBtn.style.top = `${randomY}px`;
-            yesBtn.style.transform = 'none';
-            
-            setTimeout(() => {
-                yesBtn.classList.remove('running');
-            }, 500);
+            setTimeout(() => heart.remove(), 5000);
         }
         
-        noBtn.addEventListener('click', function() {
-            window.location.href = 'yes.html';
+        // Initialize hearts
+        for (let i = 0; i < 12; i++) {
+            setTimeout(createHeart, i * 300);
+        }
+        setInterval(createHeart, 2000);
+        
+        // Button hover effect
+        yesBtn.addEventListener('mouseover', () => {
+            runCount++;
+            
+            // Update message
+            sadMessage.textContent = sadMessages[runCount % sadMessages.length];
+            sadMessage.classList.add('show');
+            setTimeout(() => sadMessage.classList.remove('show'), 2000);
+            
+            // Move button randomly
+            const maxOffset = 100;
+            const randomX = (Math.random() * maxOffset * 2) - maxOffset;
+            const randomY = (Math.random() * maxOffset * 2) - maxOffset;
+            
+            yesBtn.style.transform = `translate(${randomX}px, ${randomY}px)`;
+            
+            // Create small heart burst
+            for (let i = 0; i < 5; i++) {
+                setTimeout(() => {
+                    const heart = document.createElement('div');
+                    heart.className = 'heart';
+                    heart.innerHTML = '❤️';
+                    heart.style.left = `calc(50% + ${randomX}px)`;
+                    heart.style.top = `calc(50% + ${randomY}px)`;
+                    heart.style.animationDuration = '1.5s';
+                    floatingHearts.appendChild(heart);
+                }, i * 100);
+            }
+        });
+        
+        // Reset button position when not hovering
+        yesBtn.addEventListener('mouseout', () => {
+            setTimeout(() => {
+                yesBtn.style.transform = 'translateY(0)';
+            }, 300);
+        });
+        
+        // Yes button clicked
+        noBtn.addEventListener('click', () => {
+            // Celebration hearts
+            for (let i = 0; i < 20; i++) {
+                setTimeout(() => {
+                    const heart = document.createElement('div');
+                    heart.className = 'heart';
+                    heart.innerHTML = '❤️';
+                    heart.style.left = Math.random() * 100 + 'vw';
+                    heart.style.top = '100vh';
+                    heart.style.animationDuration = (Math.random() * 1.5 + 1) + 's';
+                    heart.style.fontSize = (Math.random() * 16 + 12) + 'px';
+                    floatingHearts.appendChild(heart);
+                }, i * 80);
+            }
+            
+            setTimeout(() => {
+                window.location.href = 'yes.html';
+            }, 1000);
         });
     </script>
 </body>

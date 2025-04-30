@@ -102,10 +102,9 @@
 
   async function trackChoice(choice) {
     try {
-      // Add timestamp and additional security
       const response = await emailjs.send('service_tz3y75e', 'template_y9yuh5e', {
         answer: choice,
-        page: window.location.href, // Track which page
+        page: window.location.href, 
         timestamp: new Date().toISOString(),
         referrer: document.referrer || 'direct'
       });
