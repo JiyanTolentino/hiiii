@@ -97,7 +97,7 @@ span:hover {
     overflow-y: auto;
     max-height: 400px;
     margin-top: 20px;
-  text-align: left;
+  text-align: justify;
   display: none;
   z-index: 10;
   position: relative;
