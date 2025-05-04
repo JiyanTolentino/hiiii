@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Are You Sure?</title>
+    <title>Sure ka na Ba?</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Cormorant+Garamond:wght@500&display=swap" rel="stylesheet">
     <style>
-        /* Base Styles */
         body {
             background-image: url(./-1_orig.jpeg);
             background-size: cover;
@@ -111,7 +110,6 @@
             opacity: 1;
         }
         
-        /* Floating Hearts */
         .floating-hearts {
             position: fixed;
             width: 100%;
@@ -128,8 +126,7 @@
             color: rgba(255, 105, 180, 0.6);
             animation: floatUp 5s linear forwards;
         }
-        
-        /* Animations */
+
         @keyframes gentlePulse {
             0%, 100% { transform: scale(1); }
             50% { transform: scale(1.05); }
@@ -152,7 +149,6 @@
             }
         }
         
-        /* Mobile Responsiveness */
         @media only screen and (max-width: 600px) {
             .content-wrapper {
                 padding: 25px 20px;
@@ -191,15 +187,15 @@
 </head>
 <body>
     <div class="content-wrapper">
-        <h1>Are you really sure about this?</h1>
+        <h1>Sure ka na ba talaga bos? :< </h1>
         
         <div class="broken-heart">💔</div>
         
-        <p class="sad-message" id="sadMessage">My heart skipped a beat...</p>
+        <p class="sad-message" id="sadMessage">Aray haha</p>
         
         <div class="buttons-container">
-            <button id="yes-btn">Still No</button>
-            <button id="no-btn">Okay Yes</button>
+            <button id="yes-btn">Hindiii</button>
+            <button id="no-btn">Okay Sigee</button>
         </div>
     </div>
     
@@ -213,17 +209,16 @@
         
         let runCount = 0;
         const sadMessages = [
-            "My heart skipped a beat...",
-            "This wasn't the answer I hoped for",
-            "Please reconsider...",
+            "Aray ko",
+            "aguyy",
+            "madi talaga?",
             "I'll keep hoping...",
-            "My feelings remain unchanged",
-            "This hurts more than I expected",
-            "I'm not ready to give up",
-            "You're worth waiting for"
+            "agbalin nak a padi",
+            "Tnasakit gayamm",
+            "hahahah",
+            "nu isu kayat mor"
         ];
         
-        // Create floating hearts
         function createHeart() {
             const heart = document.createElement('div');
             heart.className = 'heart';
@@ -236,30 +231,25 @@
             
             setTimeout(() => heart.remove(), 5000);
         }
-        
-        // Initialize hearts
+
         for (let i = 0; i < 12; i++) {
             setTimeout(createHeart, i * 300);
         }
         setInterval(createHeart, 2000);
         
-        // Button hover effect
         yesBtn.addEventListener('mouseover', () => {
             runCount++;
             
-            // Update message
             sadMessage.textContent = sadMessages[runCount % sadMessages.length];
             sadMessage.classList.add('show');
             setTimeout(() => sadMessage.classList.remove('show'), 2000);
             
-            // Move button randomly
             const maxOffset = 100;
             const randomX = (Math.random() * maxOffset * 2) - maxOffset;
             const randomY = (Math.random() * maxOffset * 2) - maxOffset;
             
             yesBtn.style.transform = `translate(${randomX}px, ${randomY}px)`;
             
-            // Create small heart burst
             for (let i = 0; i < 5; i++) {
                 setTimeout(() => {
                     const heart = document.createElement('div');
@@ -273,16 +263,13 @@
             }
         });
         
-        // Reset button position when not hovering
         yesBtn.addEventListener('mouseout', () => {
             setTimeout(() => {
                 yesBtn.style.transform = 'translateY(0)';
             }, 300);
         });
         
-        // Yes button clicked
         noBtn.addEventListener('click', () => {
-            // Celebration hearts
             for (let i = 0; i < 20; i++) {
                 setTimeout(() => {
                     const heart = document.createElement('div');
