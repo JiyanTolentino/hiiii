@@ -1,5 +1,5 @@
 const lyrics = [
-    { text: "♪ Piano Intro ♪", time: 0, duration: 17.3 },
+    { text: "................", time: 0, duration: 17.3 },
 
     { text: "You were in college working part time waitin' tables", time: 17.3, duration: 4.2 },
     { text: "Left a small town, never looked back", time: 21.5, duration: 3.3 },
@@ -85,12 +85,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 cancelAnimationFrame(animationFrame);
                 clearTimeout(lyricTimeout);
                 song.pause();
-                lyricsLine.textContent = "You are the best thing that I ever encountered";
+                lyricsLine.textContent = "Blehhhh";
                 lyricsLine.style.opacity = 1;
             }, 69000); 
         }).catch(error => {
             console.error("Playback failed:", error);
-            lyricsLine.textContent = "Click to play ❤️";
+            lyricsLine.textContent = "Klikkk mo";
             songStarted = false;
         });
     }
